@@ -140,11 +140,38 @@ UM-SJTU JI \\ % Your institution for the title page
     where $\lambda = LAMBDA$, $\gamma = GAMMA$, and $2\phi_F = PHI$. 
 \end{frame}
 
-\subsection{$Gm$ \& $R_{out}$ \& $A_v$}
+\subsection{$Gm$ \& $R_{out}$ \& $R_{in}$ \& $A_v$}
 \begin{frame}
-    \frametitle{$Gm$ \& $R_{out}$ \& $A_v$}
+    \frametitle{$Gm$ \& $R_{out}$}
+    \textbf{How to calculate Gm?}
+    \begin{enumerate}[1. ]
+        \item Draw small signal model.
+        \item Connect port with $V_{out}$ to ground.
+        \item Derive $i_{out}$.
+        \item Calculate $Gm = \dfrac{i_{out}}{v_{in}}$.
+    \end{enumerate}
+\textbf{How to calculate $\mathbf{R_{out}}$?}
+    \begin{enumerate}
+        \item Draw small signal model.
+        \item Connect port with $V_{in}$ to ground. Connect a test voltage $v_t$ on port with $V_{out}$.
+        \item Derive $i_t$.
+        \item Calculate $R_{out} = \dfrac{v_t}{i_t}$. 
+    \end{enumerate} 
+\end{frame}
+\begin{frame}
+    \frametitle{$R_{in}$ \& $A_v$}
+    \textbf{How to calculate $\mathbf{R_{in}}$?}
+    \begin{enumerate}
+        \item Draw small signal model.
+        \item Connect port with $V_{out}$ to ground. Connect a test voltage $v_t$ on port with $V_{in}$.
+        \item Derive $i_t$.
+        \item Calculate $R_{in} = \dfrac{v_t}{i_t}$. 
+    \end{enumerate} 
+    \textbf{How to calculate $\mathbf{A_v}$?}
+    \begin{equation*}
+        A_v = GmR_{out}
+    \end{equation*}
 
-    
 
 \end{frame}
 
@@ -464,17 +491,20 @@ UM-SJTU JI \\ % Your institution for the title page
 \begin{frame}
     \frametitle{Some Tips qwq}
     \begin{itemize}
-        \item Understand all the formulas will help.
-        \item Please write down partial steps in the exam.
-        \item When plotting, please mark your diagram well (peak values, period\dots).
+        \item Derive all the $Gm$ and $R_{out}$ yourself before the final. 
+        \item Small signal model!!!
+        \item Small signal models, equations, and explanation do matter if you cannot guarantee your final result is correct. 
+        \item When plotting, please mark your diagram well!!!(peak values, period\dots).
     \end{itemize}
-    
-
 \end{frame}
 %------------------------------------------------
 
 \begin{frame}
-\Huge{\centerline{Good Luck for Your Mid!}}
+\Huge{\centerline{Good Luck for Your FINAL!}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{IMG_20200921_195647.jpg}
+\end{figure}
 
 \end{frame}
 
