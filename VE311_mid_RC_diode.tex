@@ -109,6 +109,7 @@ UM-SJTU JI \\ % Your institution for the title page
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 \section{Basics}
+\subsection{DC}
 \begin{frame}
     \frametitle{DC Calculation}
     \textbf{Current} (NMOS)\\
@@ -123,6 +124,7 @@ UM-SJTU JI \\ % Your institution for the title page
     where $V_{TH} = VTO$, $\dfrac{W}{L_{eff}} = \dfrac{W_{drawn}}{L_{drawn}-2LD}$, $C_{ox} = \dfrac{\epsilon_r\epsilon_0}{TOX}$, and $\mu_n = UO\times 10^{-4}$
 \end{frame}
 
+\subsection{$gm$ \& $r_o$ \& $gmb$} 
 \begin{frame}
     \frametitle{$gm$ \& $r_o$ \& $gmb$}
     For NMOS, 
@@ -138,6 +140,7 @@ UM-SJTU JI \\ % Your institution for the title page
     where $\lambda = LAMBDA$, $\gamma = GAMMA$, and $2\phi_F = PHI$. 
 \end{frame}
 
+\subsection{$Gm$ \& $R_{out}$ \& $A_v$}
 \begin{frame}
     \frametitle{$Gm$ \& $R_{out}$ \& $A_v$}
 
@@ -340,10 +343,116 @@ UM-SJTU JI \\ % Your institution for the title page
     \end{minipage}\\
     * What if $M_1$ is replaced by a PMOS?% TODO: page 36
 \end{frame}
+\begin{frame}
+    \frametitle{Source Follower with Current Source}
+    \begin{minipage}{0.45\linewidth}
+        Basic Circuit ($\lambda, \gamma\not= 0$)
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{source-follower-D.png}
+        \end{figure}
+         
+    \end{minipage}
+    \begin{minipage}{0.535\linewidth}
+        \begin{minipage}{0.5\linewidth}
+            \begin{figure}[H]
+                \includegraphics[width=0.8\linewidth]{Rin25}
+            \end{figure}
+        \end{minipage}
+        $\Rightarrow r_{o2}$\\
+        \begin{minipage}{0.45\linewidth}
+            \begin{figure}[H]
+                \includegraphics[width=0.8\linewidth]{Rout1}
+            \end{figure}
+        \end{minipage}
+        $\Rightarrow r_{o1}||\dfrac{1}{gm_1}$\\
+        \begin{equation*}
+            R_{out} = r_o1||\frac{1}{gm_1}||r_{o2}
+        \end{equation*}
+        \begin{equation*}
+            Gm = gm_1
+        \end{equation*}
+    \end{minipage}
+\end{frame}
 \subsection{Common Gate}
 
 \begin{frame}
-\frametitle{}
+    \frametitle{Common Gate}
+    \begin{minipage}{0.4\linewidth}
+        Basic Circuit ($\lambda, \gamma\not= 0$)
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{common-gate.png}
+        \end{figure}
+    \end{minipage}
+    \,
+    \begin{minipage}{0.55\linewidth}
+        \begin{equation*}
+            {G}_{{m}}=\frac{({gm_1}+{gmb_1}) {r}_{{o1}}+1}{{r}_{{o1}}+{R}_{{S}}+({gm_1}+{gmb_1}) {r}_{{o1}} {R}_{{S}}}
+        \end{equation*}
+        \begin{equation*}
+            R_{{out }}=R_{D} \|\left[r_{o1}+R_{S}+(g m_1+g m b_1) r_{o1} R_{S}\right]
+        \end{equation*}
+        \begin{minipage}{0.26\linewidth}
+            \begin{figure}[H]
+                \includegraphics[width=1.1\linewidth]{Rin26}
+            \end{figure}
+        \end{minipage}
+        $\Rightarrow \dfrac{R_{D}+r_{o1}}{1+(gm_1+gmb_1) r_{o1}}$ 
+    \end{minipage}\\
+    * What if $M_1$ is replaced by PMOS? 
+\end{frame}
+\begin{frame}
+    \frametitle{Complex Common Gate}
+    \begin{minipage}{0.4\linewidth}
+       ($\lambda, \gamma\not= 0$)
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{common-gate2.png}
+        \end{figure}
+    \end{minipage}
+    \,
+    \begin{minipage}{0.55\linewidth}
+        For
+        \begin{minipage}{0.26\linewidth}
+            \begin{figure}[H]
+                \includegraphics[width=1.1\linewidth]{source-follower2.png}
+            \end{figure}
+        \end{minipage}
+        , take it as a source follower with infinity source resistance. Then we get 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\linewidth]{source-follower3}
+            \end{figure}
+    \end{minipage}\\
+\end{frame}
+\begin{frame}
+    \frametitle{Complex Common Gate (Cont.)}
+    Then
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{common-gate2.png}
+        \end{figure}
+    \end{minipage}
+    $\Rightarrow $
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{common-gate3}
+        \end{figure}
+    \end{minipage}\\
+    with 
+    \begin{equation*}
+        {G}_{{m}}=\frac{({gm_2}+{gmb_2}) {r}_{{o2}}+1}{{r}_{{o2}}+{R}_{{S}}+({gm_2}+{gmb_2}) {r}_{{o2}} {R}_{{S}}}\cdot gm_1\left( r_{o1}||\dfrac{1}{gm_1}||\frac{1}{gmb_1} \right)
+    \end{equation*}
+    \begin{equation*}
+        R_{{out }}=R_{D} \|\left[r_{o2}+R_{S}+(g m_2+g m b_2) r_{o2} R_{S}\right]
+    \end{equation*}
+    \begin{equation*}
+        \text{where } R_S = r_{o1}||\dfrac{1}{gm_1}||\frac{1}{gmb_1}
+    \end{equation*} 
+
 \end{frame}
 
 %------------------------------------------------
